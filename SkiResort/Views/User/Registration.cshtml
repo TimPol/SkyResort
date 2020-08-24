@@ -1,0 +1,49 @@
+﻿
+@using SkiResort.Models;
+@using SkiResort.ViewModels;
+@model UserViewModel
+<style type="text/css">
+    .validation-summary-errors, .field-validation-error {
+        color: red;
+    }
+
+        .validation-summary-errors ul {
+            list-style-type: none;
+        }
+</style>
+
+@using (Html.BeginForm("Registration", "User", FormMethod.Post))
+{
+    <h2>Регистрация</h2>
+    <br />
+    <div>
+        @Html.LabelFor(x => x.Name, "Имя")
+        <br />
+        @Html.TextBoxFor(x => x.Name)
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(x => x.Email, "Email")
+        <br />
+        @Html.TextBoxFor(x => x.Email)
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(x => x.Password, "Пароль")
+        <br />
+        @Html.TextBoxFor(x => x.Password)
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(x => x.ConfirmPassword, "Подтверждение пароля")
+        <br />
+        @Html.TextBoxFor(x => x.ConfirmPassword)
+        @Html.ValidationMessageFor(x => x.ConfirmPassword)
+    </div>
+    <br />
+    <div><button type="submit">Зарегистрироваться</button></div>
+    <br />
+    <a href="@Url.Action("Index", "Home")">Вернуться на главную страницу</a>
+}

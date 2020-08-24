@@ -1,0 +1,30 @@
+﻿@using SkiResort.Models
+@using SkiResort.ViewModels;
+
+@model LoginViewModel
+
+<h2>Вход на сайт</h2>
+
+<form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly" />
+    <div>
+        <br />
+        <div class="form-group">
+            <label asp-for="Email">Введите Email</label>
+            <input type="text" asp-for="Email" />
+            <span asp-validation-for="Email" />
+        </div>
+        <br />
+        <div class="form-group">
+            <label asp-for="Password">Введите пароль</label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password" />
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Войти" class="btn btn-outline-dark" />
+        </div>
+        <br />
+        <a href="@Url.Action("Index", "Home")">Вернуться на главную страницу</a>
+    </div>
+</form>
